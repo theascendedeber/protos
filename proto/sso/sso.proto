@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "eber.sso.v1;ssov1";
+
+service Auth {
+    rpc Register (RegisterRequest) returns (RegisterResponse);
+    rpc Login (LoginRequest) returns (LoginResponse);
+    rpc IsAdmin (IsAdminResquest) returns (IsAdminResponse);
+}
+
+message RegisterRequest {
+    string email = 1; // почта регистрирующегося пользователя
+    string password = 2; // пароль регистрирующегося пользователя
+}
+
+message RegisterResponse {
+    int64 user_id = 1; // user_id зарегистрированного пользователя
+}
+
+message LoginRequest {
+    string email = 1; // почта логинящегося пользователя
+    string password = 2; // пароль логинящегося пользователя
+    int32 app_id = 3; // id приложения в который осуществляется вход
+}
+
+message LoginResponse {
+    string token = 1; // JWT токен залогиненого пользователя
+}
+
+message IsAdminResquest {
+    int64 user_id = 1;
+}
+
+message IsAdminResponse {
+    bool is_admin = 1;
+}
