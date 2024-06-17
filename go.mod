@@ -13,5 +13,3 @@ require (
 	golang.org/x/text v0.14.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240318140521-94a12d6c2237 // indirect
 )
-
-replace github.com/theascendedeber/protos => github.com/theascendedeber/protos
